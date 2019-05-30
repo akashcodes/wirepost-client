@@ -1,0 +1,603 @@
+@font-face {
+  font-family: "roboto-light";
+  src: url("../assets/fonts/Roboto-Light.ttf");
+}
+
+@font-face {
+  font-family: "computer";
+  src: url("../assets/fonts/Computerfont.ttf");
+}
+
+@font-face {
+  font-family: "droidsansmono";
+  src: url("../assets/fonts/DroidSansMono.ttf");
+}
+
+
+body {
+  background-color: #E4E5E6;
+}
+
+@media screen and (min-width:1024px) {
+  .feed-top {
+    display: grid;
+    
+    grid-gap: 3vw;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 15vw);
+
+    max-width: 86vw;
+    margin-left: 3vw;
+    margin-top: 6vw;
+    overflow-x: hidden;
+    font-family: "Open Sans";
+    padding: 3vw;
+    background-color: white;
+  }
+
+  .feed-top .article {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feed-top .article:hover .title {
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
+  .feed-top .article .title {
+    color: #333333;
+  }
+
+  .article .link-mask {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    transition: all 0.1s;
+  }
+
+  .article .link-mask:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .feed-top .article:nth-child(1) {
+    grid-column: 1/span 2;
+    grid-row: 1/span 2;
+  }
+
+  .feed-top .article:nth-child(1) .title {
+    margin-bottom: 1vw;
+    font-size: 1.8vw;
+    font-weight: bold;
+    display: inline-block;
+    /*border-left: 4px solid #333333;*/
+    font-family: "Open Sans";
+  }
+
+  .feed-top .article:nth-child(1) .date {
+    margin-bottom: 1vw;
+    font-size: 1.0vw;
+    display: inline-block;
+    color: #7f8c8d;
+    /*border-left: 4px solid #333333;*/
+    font-family: "roboto-light";
+  }
+
+  .feed-top .article:nth-child(2) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .feed-top .article:nth-child(n+2) .title {
+    margin-bottom: 0.6vw;
+    font-size: 1.1vw;
+    font-weight: bold;
+    display: inline-block;
+    /*border-left: 4px solid #333333;*/
+    font-family: "Open Sans";
+  }
+
+  .feed-top .article:nth-child(n+2) .date {
+    margin-bottom: 0.4vw;
+    font-size: 0.8vw;
+    display: inline-block;
+    color: #7f8c8d;
+    /*border-left: 4px solid #333333;*/
+    font-family: "roboto-light";
+  }
+
+  .article:nth-child(3) {
+    grid-column: 4;
+    grid-row: 1;
+  }
+
+  .article:nth-child(4) {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .article:nth-child(5) {
+    grid-column: 4;
+    grid-row: 2;
+  }
+
+  .feed-top .article .banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .feed-top .article .banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  }
+
+
+  .feed-main {
+    display: inline-block;
+    position: relative;
+    width: 50vw;
+    margin-top: 3vw;
+    padding-top: 6vw;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    margin-left: 3vw;
+    background-color: white;
+    font-family: "Open Sans";
+    overflow: hidden;
+  }
+  /*
+  .feed-main::before {
+    content: "";
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    top: 0vw;
+    left: 0vw;
+    background:#34495e;
+    -webkit-clip-path: polygon(28% 0, 55% 30%, 55% 70%, 28% 100%, 0 100%, 0 0);
+    clip-path: polygon(28% 0, 55% 30%, 55% 70%, 28% 100%, 0 100%, 0 0);
+  }
+  */
+  .feed-main-title {
+    position: absolute;
+    font-size: 1.8vw;
+    left: 3vw;
+    top: 3.5vw;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #34495e;
+    font-family: "Open Sans";
+  }
+
+  .feed-main .article {
+    position: relative;
+    width: 100%;
+    height: 12vw;
+    margin-bottom: 3vw;
+    overflow: hidden;
+    font-weight: bold;
+    color: #2c3e50;
+    
+    /*
+    -webkit-box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    -moz-box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    */
+  }
+
+
+
+  .feed-main .article:hover .title p {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
+  .feed-main .feed-border {
+    position: relative;
+    width: 90%;
+    height: 1px;
+    margin-bottom: 3vw;
+    margin-left: 5%;
+    overflow: hidden;
+    background-color: #95a5a6;
+  }
+
+  .feed-main .article .ambient-bar {
+    display: none;
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #333333;
+  }
+
+  .feed-main .article .banner {
+    position: absolute;
+    width: 15vw;
+    height: 12vw;
+    right: 0px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    */
+  }
+
+  .feed-main .article .banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.1)
+  }
+
+
+  .feed-main .article .title {
+    position: absolute;
+    color: #333333;
+    font-size: 1.2vw;
+    width: 33vw;
+    left: 1vw;
+    top: 1vw;
+    height: 4vw;
+    font-family: "Open Sans";
+  }
+
+  .feed-main .article .content {
+    position: absolute;
+    color: #7f8c8d;
+    font-size: 1vw;
+    width: 33vw;
+    left: 1vw;
+    top: 4.5vw;
+    height: 2vw;
+  }
+
+  .feed-main .article .meta {
+    position: absolute;
+    width: 33vw;
+    left: 1vw;
+    top: 8vw;
+    height: 4vw;
+  }
+
+  .feed-main .article .meta .date {
+    position: absolute;
+    color: #bdc3c7;
+    font-size: 0.9vw;
+    left: 0vw;
+    bottom: 0vw;
+    font-weight: bold;
+    font-family: "roboto-light";
+  }
+
+  .feed-main .article .meta .date span {
+    opacity: 0.7;
+  }
+
+  .feed-side {
+    display: inline-block;
+    position: relative;
+    width: 40vw;
+    margin-top: 3vw;
+    margin-left: 2vw;
+    font-family: "roboto-light";
+  }
+
+  .loadMore {
+    opacity: 0;
+    position: relative;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    display: inline-block;
+    left: 90%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    color: #333333;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #333333;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05b9f5', endColorstr='#40ba85', GradientType=1 );
+  }
+
+  .loadMore:hover {
+    background: rgba(5,185,245,1);
+    background: -moz-linear-gradient(-45deg, rgba(5,185,245,1) 0%, rgba(64,186,133,1) 100%);
+    background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(5,185,245,1)), color-stop(100%, rgba(64,186,133,1)));
+    background: -webkit-linear-gradient(-45deg, rgba(5,185,245,1) 0%, rgba(64,186,133,1) 100%);
+    background: -o-linear-gradient(-45deg, rgba(5,185,245,1) 0%, rgba(64,186,133,1) 100%);
+    background: -ms-linear-gradient(-45deg, rgba(5,185,245,1) 0%, rgba(64,186,133,1) 100%);
+    background: linear-gradient(135deg, rgba(5,185,245,1) 0%, rgba(64,186,133,1) 100%);
+    color: white;
+    border: 1px solid white;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:320px) and (max-width:1023px) {
+  .feed-top {
+    display: grid;
+ 
+    grid-gap: 1px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(5, 80vw);
+
+    max-width: 100vw;
+    margin-top: 25vw;
+    overflow-x: hidden;
+    font-family: "Open Sans";
+    background-color: white;
+  }
+
+  .feed-top .article {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feed-top .article:hover .title {
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
+  .feed-top .article .title {
+    color: #333333;
+  }
+
+  .article .link-mask {
+    position: absolute;
+    top: 0vw;
+    left: 0vw;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    transition: all 0.1s;
+    z-index: 10;
+  }
+
+  .article .link-mask:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .feed-top .article .title {
+    position: absolute;
+    bottom: 20vw;
+    font-size: 5vw;
+    width: 90%;
+    height: auto;
+    left: 2%;
+    font-weight: bold;
+    /*border-left: 4px solid #333333;*/
+    font-family: "Open Sans";
+    z-index: 9;
+    color: white;
+  }
+
+  .feed-top .article .date {
+    position: absolute;
+    bottom: 10vw;
+    font-size: 3vw;
+    width: 90%;
+    height: auto;
+    left: 2%;
+    color: white;
+    /*border-left: 4px solid #333333;*/
+    font-family: "roboto-light";
+    z-index: 9;
+  }
+
+  .feed-top .article .banner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .feed-top .article .banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+  }
+
+
+  .feed-main {
+    display: inline-block;
+    position: relative;
+    width: 94vw;
+    padding: 3vw;
+    background-color: transparent;
+    font-family: "Open Sans";
+    overflow: hidden;
+  }
+  /*
+  .feed-main::before {
+    content: "";
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    top: 0vw;
+    left: 0vw;
+    background:#34495e;
+    -webkit-clip-path: polygon(28% 0, 55% 30%, 55% 70%, 28% 100%, 0 100%, 0 0);
+    clip-path: polygon(28% 0, 55% 30%, 55% 70%, 28% 100%, 0 100%, 0 0);
+  }
+  */
+  .feed-main-title {
+    display: none;
+  }
+
+  .feed-main .article {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    margin-bottom: 3vw;
+    overflow: hidden;
+    font-weight: bold;
+    color: #2c3e50;
+    background-color: white;
+    
+    /*
+    -webkit-box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    -moz-box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    box-shadow: 0px 0px 6px -1px rgba(44, 62, 80,0.75);
+    */
+  }
+
+
+
+  .feed-main .article:hover .title p {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #2c3e50;
+  }
+
+  .feed-main .feed-border {
+    position: relative;
+    width: 90%;
+    height: 1px;
+    margin-bottom: 3vw;
+    margin-left: 5%;
+    overflow: hidden;
+    background-color: #95a5a6;
+  }
+
+  .feed-main .article .ambient-bar {
+    display: none;
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #333333;
+  }
+
+  .feed-main .article .banner {
+    position: absolute;
+    top: 5vw;
+    width: 30vw;
+    height: 30vw;
+    right: 5vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /*
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    */
+  }
+
+  .feed-main .article .banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.1)
+  }
+
+
+  .feed-main .article .title {
+    position: absolute;
+    color: #333333;
+    font-size: 4vw;
+    width: 54vw;
+    left: 3vw;
+    top: 5vw;
+    height: 4vw;
+    font-family: "Open Sans";
+  }
+
+  .feed-main .article .content {
+    position: absolute;
+    color: #7f8c8d;
+    font-size: 1vw;
+    width: 33vw;
+    left: 1vw;
+    top: 4.5vw;
+    height: 2vw;
+    display: none;
+  }
+
+  .feed-main .article .meta {
+    position: absolute;
+    width: 54vw;
+    left: 3vw;
+    bottom: 5vw;
+    height: 4vw;
+  }
+
+  .feed-main .article .meta .date {
+    position: absolute;
+    color: #bdc3c7;
+    font-size: 3vw;
+    left: 0vw;
+    bottom: 0vw;
+    font-weight: bold;
+    font-family: "roboto-light";
+  }
+
+  .feed-main .article .meta .date span {
+    opacity: 0.7;
+  }
+
+  .feed-side {
+    display: inline-block;
+    position: relative;
+    width: 40vw;
+    margin-top: 3vw;
+    margin-left: 2vw;
+    font-family: "roboto-light";
+  }
+
+  .loadMore {
+    opacity: 0;
+    position: relative;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    display: inline-block;
+    left: 90%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translateX(-50%);
+    background: white;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    color: #333333;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #333333;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#05b9f5', endColorstr='#40ba85', GradientType=1 );
+  }
+}
